@@ -5,6 +5,7 @@ import HUD from './components/HUD';
 import FinishOverlay from './components/FinishOverlay';
 import CollisionModal from './components/CollisionModal';
 import Instructions from './components/Instructions';
+import LandscapeOrientation from './components/LandscapeOrientation';
 import { useControls } from './hooks/useControls';
 
 function LoadingScreen() {
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-black">
+      <LandscapeOrientation />
       <Suspense fallback={<LoadingScreen />}>
         <F1Scene />
         <HUD />

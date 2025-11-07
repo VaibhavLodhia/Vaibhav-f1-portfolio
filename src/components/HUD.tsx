@@ -97,7 +97,14 @@ export default function HUD() {
             const { changeLane } = useStore.getState();
             changeLane('left');
           }}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const { changeLane } = useStore.getState();
+            changeLane('left');
+          }}
           className="w-20 h-20 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white/50 transition-all hover:scale-110 active:scale-95"
+          style={{ touchAction: 'manipulation' }}
           aria-label="Move to left lane"
         >
           <svg
@@ -120,7 +127,14 @@ export default function HUD() {
             const { changeLane } = useStore.getState();
             changeLane('right');
           }}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const { changeLane } = useStore.getState();
+            changeLane('right');
+          }}
           className="w-20 h-20 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white/50 transition-all hover:scale-110 active:scale-95"
+          style={{ touchAction: 'manipulation' }}
           aria-label="Move to right lane"
         >
           <svg
