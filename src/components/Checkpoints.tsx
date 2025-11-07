@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef, forwardRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import { useStore } from '../store/useStore';
@@ -71,7 +71,7 @@ interface CheckpointProps {
   };
 }
 
-const CheckpointBox = React.forwardRef<THREE.Group, CheckpointProps>(
+const CheckpointBox = forwardRef<THREE.Group, CheckpointProps>(
   ({ checkpoint }, ref) => {
     const { triggered, skipped, position, label } = checkpoint;
     const boxRef = useRef<THREE.Mesh>(null);

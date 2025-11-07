@@ -6,7 +6,7 @@ import * as THREE from 'three';
 import { ErrorBoundary } from './ErrorBoundary';
 
 interface NPCCarProps {
-  id: number;
+  id?: number; // Optional since it's not used in component functions
   initialPosition: [number, number, number];
   speed: number;
   lane: number; // -1 = left, 0 = center, 1 = right
@@ -276,11 +276,11 @@ function NPCCarPlaceholder({ initialPosition, speed, lane }: NPCCarProps) {
   );
 }
 
-function NPCCar({ id, initialPosition, speed, lane }: NPCCarProps) {
+function NPCCar({ id: _id, initialPosition, speed, lane }: NPCCarProps) {
   return (
-    <ErrorBoundary fallback={<NPCCarPlaceholder id={id} initialPosition={initialPosition} speed={speed} lane={lane} />}>
-      <Suspense fallback={<NPCCarPlaceholder id={id} initialPosition={initialPosition} speed={speed} lane={lane} />}>
-        <NPCCarModel id={id} initialPosition={initialPosition} speed={speed} lane={lane} />
+    <ErrorBoundary fallback={<NPCCarPlaceholder initialPosition={initialPosition} speed={speed} lane={lane} />}>
+      <Suspense fallback={<NPCCarPlaceholder initialPosition={initialPosition} speed={speed} lane={lane} />}>
+        <NPCCarModel initialPosition={initialPosition} speed={speed} lane={lane} />
       </Suspense>
     </ErrorBoundary>
   );
