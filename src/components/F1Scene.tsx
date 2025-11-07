@@ -11,7 +11,7 @@ import * as THREE from 'three';
 import { useThree } from '@react-three/fiber';
 
 function PanoramaSkybox() {
-  const panoramaTexture = useTexture('/assets/panorama-green.webp');
+  const panoramaTexture = useTexture(`${import.meta.env.BASE_URL}assets/panorama-green.webp`);
   const { scene } = useThree();
   
   useEffect(() => {

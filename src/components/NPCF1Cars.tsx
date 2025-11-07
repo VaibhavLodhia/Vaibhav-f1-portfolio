@@ -17,7 +17,7 @@ const LANE_POSITIONS = [-4.5, 0, 4.5];
 
 function NPCCarModel({ initialPosition, speed, lane }: NPCCarProps) {
   const carRef = useRef<THREE.Group>(null);
-  const { scene } = useGLTF('/assets/models/f1_cars.glb');
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}assets/models/f1_cars.glb`);
   const { phase, carPosition, setCollision, collision } = useStore();
 
   const npcPosition = useRef(new THREE.Vector3(

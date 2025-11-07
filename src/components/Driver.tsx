@@ -8,7 +8,7 @@ import { ErrorBoundary } from './ErrorBoundary';
 
 function DriverModel() {
   const groupRef = useRef<THREE.Group>(null);
-  const { scene, animations } = useGLTF('/assets/models/driver.glb');
+  const { scene, animations } = useGLTF(`${import.meta.env.BASE_URL}assets/models/driver.glb`);
   const { actions } = useAnimations(animations, groupRef);
   const { phase, setPhase } = useStore();
 

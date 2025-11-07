@@ -6,7 +6,7 @@ export default function StadiumBackground() {
   const backgroundRef = useRef<THREE.Group>(null);
   
   // Load jungle texture
-  const jungleTexture = useTexture('/assets/jungle.png');
+  const jungleTexture = useTexture(`${import.meta.env.BASE_URL}assets/jungle.png`);
   const [imageAspect, setImageAspect] = useState(1);
   
   // Get image dimensions to calculate proper aspect ratio
@@ -22,7 +22,7 @@ export default function StadiumBackground() {
       jungleTexture.repeat.set(1, 1); // Show full image without repetition
       jungleTexture.flipY = false;
     };
-    img.src = '/assets/jungle.png';
+    img.src = `${import.meta.env.BASE_URL}assets/jungle.png`;
   }, [jungleTexture]);
 
   // Track is 800 units long, create left and right walls

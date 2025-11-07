@@ -3,7 +3,7 @@ import { useTexture } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 
 export default function StadiumSky() {
-  const texture = useTexture('/assets/r_stadium.jpg');
+  const texture = useTexture(`${import.meta.env.BASE_URL}assets/r_stadium.jpg`);
   const { scene } = useThree();
 
   useEffect(() => {

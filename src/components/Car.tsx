@@ -11,7 +11,7 @@ interface CarProps {
 
 function CarModel({ helmetCameraRef }: CarProps) {
   const carRef = useRef<THREE.Group>(null);
-  const { scene } = useGLTF('/assets/models/f1_car.glb');
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}assets/models/f1_car.glb`);
   const { phase, carSpeed, carLane, setPhase, setCarPosition, updateSpeed } = useStore();
 
   const carPosition = useRef(new THREE.Vector3(0, 0.1, 0));

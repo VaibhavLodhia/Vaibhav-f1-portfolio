@@ -7,7 +7,7 @@ function TrackModel() {
   const trackRef = useRef<THREE.Group>(null);
   
   // Load 3D track model - useGLTF might not support .g3d format
-  const { scene } = useGLTF('/assets/models/model.g3d');
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}assets/models/model.g3d`);
   const trackModel = scene.clone();
 
   // Configure track model materials
@@ -32,7 +32,7 @@ function TrackModel() {
 }
 
 function TrackFallback() {
-  const trackTexture = useTexture('/assets/track.jpg');
+  const trackTexture = useTexture(`${import.meta.env.BASE_URL}assets/track.jpg`);
   
   useEffect(() => {
     trackTexture.wrapS = THREE.RepeatWrapping;

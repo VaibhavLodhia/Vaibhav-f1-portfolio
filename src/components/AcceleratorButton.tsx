@@ -6,7 +6,7 @@ import { useStore } from '../store/useStore';
 import { ErrorBoundary } from './ErrorBoundary';
 
 function AcceleratorModel() {
-  const { scene } = useGLTF('/assets/models/accelerate.glb');
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}assets/models/accelerate.glb`);
   const modelRef = useRef<THREE.Group>(null);
   const { acceleratorPressed } = useStore();
 
