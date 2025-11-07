@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useEffect } from 'react';
+import { Suspense, useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, useTexture } from '@react-three/drei';
 import { useStore } from '../store/useStore';
@@ -8,7 +8,6 @@ import Track from './Track';
 import FinishLine from './FinishLine';
 import NPCF1Cars from './NPCF1Cars';
 import * as THREE from 'three';
-import { gsap } from 'gsap';
 import { useThree } from '@react-three/fiber';
 
 function PanoramaSkybox() {
@@ -114,73 +113,6 @@ function SceneContent() {
       <Checkpoints />
 
       {/* Grandstands removed - user requested removal */}
-    </>
-  );
-}
-
-function Grandstands() {
-  // Procedural placeholder grandstands
-  return (
-    <>
-      {/* Left grandstand - extended */}
-      <group position={[-15, 0, -125]}>
-        {Array.from({ length: 60 }).map((_, i) => (
-          <mesh key={i} position={[0, 1 + i * 0.5, 0]} castShadow receiveShadow>
-            <boxGeometry args={[30, 0.5, 1]} />
-            <meshStandardMaterial color="#2a2a3e" metalness={0.8} roughness={0.2} />
-          </mesh>
-        ))}
-        {/* Animated crowd figures */}
-        {Array.from({ length: 300 }).map((_, i) => (
-          <mesh 
-            key={`crowd-left-${i}`} 
-            position={[
-              -10 + (i % 10) * 2,
-              2 + Math.floor(i / 10) * 0.6,
-              -125 + (i % 30) * 10
-            ]} 
-            castShadow
-          >
-            <capsuleGeometry args={[0.1, 0.3, 4, 4]} />
-            <meshStandardMaterial color={`hsl(${Math.random() * 60 + 180}, 70%, 50%)`} />
-          </mesh>
-        ))}
-      </group>
-
-      {/* Right grandstand - extended */}
-      <group position={[15, 0, -125]}>
-        {Array.from({ length: 60 }).map((_, i) => (
-          <mesh key={i} position={[0, 1 + i * 0.5, 0]} castShadow receiveShadow>
-            <boxGeometry args={[30, 0.5, 1]} />
-            <meshStandardMaterial color="#2a2a3e" metalness={0.8} roughness={0.2} />
-          </mesh>
-        ))}
-        {/* Animated crowd figures */}
-        {Array.from({ length: 300 }).map((_, i) => (
-          <mesh 
-            key={`crowd-right-${i}`} 
-            position={[
-              10 + (i % 10) * 2,
-              2 + Math.floor(i / 10) * 0.6,
-              -125 + (i % 30) * 10
-            ]} 
-            castShadow
-          >
-            <capsuleGeometry args={[0.1, 0.3, 4, 4]} />
-            <meshStandardMaterial color={`hsl(${Math.random() * 60 + 180}, 70%, 50%)`} />
-          </mesh>
-        ))}
-      </group>
-
-      {/* Finish line grandstand */}
-      <group position={[0, 0, -250]}>
-        {Array.from({ length: 30 }).map((_, i) => (
-          <mesh key={i} position={[0, 1 + i * 0.5, 0]} castShadow receiveShadow>
-            <boxGeometry args={[40, 0.5, 1]} />
-            <meshStandardMaterial color="#3a2a4e" metalness={0.8} roughness={0.2} />
-          </mesh>
-        ))}
-      </group>
     </>
   );
 }

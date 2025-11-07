@@ -17,9 +17,6 @@ function CarModel({ helmetCameraRef }: CarProps) {
   const carPosition = useRef(new THREE.Vector3(0, 0.1, 0));
   const currentRotation = useRef(0);
   const targetLaneX = useRef(0); // Current target lane X position
-  const isChangingLane = useRef(false);
-  const laneChangeStartZ = useRef(0); // Z position when lane change initiated
-  const laneChangeStartX = useRef(0); // X position when lane change started
   const lastLane = useRef(carLane); // Track lane changes
 
   useEffect(() => {
@@ -73,7 +70,7 @@ function CarModel({ helmetCameraRef }: CarProps) {
     return () => clearInterval(interval);
   }, [phase, setPhase]);
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     if (!carRef.current || phase === 'intro' || phase === 'checkpoint') {
       return;
     }
@@ -180,9 +177,6 @@ function CarPlaceholder({ helmetCameraRef }: CarProps) {
   const carPosition = useRef(new THREE.Vector3(0, 0.1, 0));
   const currentRotation = useRef(0);
   const targetLaneX = useRef(0);
-  const isChangingLane = useRef(false);
-  const laneChangeStartZ = useRef(0);
-  const laneChangeStartX = useRef(0);
   const lastLane = useRef(carLane);
 
   useEffect(() => {
@@ -236,7 +230,7 @@ function CarPlaceholder({ helmetCameraRef }: CarProps) {
     return () => clearInterval(interval);
   }, [phase, setPhase]);
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     if (!carRef.current || phase === 'intro' || phase === 'checkpoint') {
       return;
     }

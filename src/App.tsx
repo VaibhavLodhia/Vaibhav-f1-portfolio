@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import F1Scene from './components/F1Scene';
 import PopUpModal from './components/PopUpModal';
 import HUD from './components/HUD';

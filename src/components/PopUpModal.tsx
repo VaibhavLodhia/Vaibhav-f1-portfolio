@@ -4,7 +4,7 @@ import { useStore } from '../store/useStore';
 import contentData from '../data/content.json';
 
 export default function PopUpModal() {
-  const { modalOpen, modalContent, closeModal, currentCheckpoint, skipCheckpoint, checkpoints } = useStore();
+  const { modalOpen, modalContent, closeModal, currentCheckpoint, skipCheckpoint } = useStore();
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Handle ESC key

@@ -8,8 +8,6 @@ export default function HUD() {
   const completedCheckpoints = useStore((state) => state.completedCheckpoints);
   const phase = useStore((state) => state.phase);
   const carPosition = useStore((state) => state.carPosition);
-  const currentCheckpoint = useStore((state) => state.currentCheckpoint);
-  const skipCheckpoint = useStore((state) => state.skipCheckpoint);
   const acceleratorPressed = useStore((state) => state.acceleratorPressed);
   const brakePressed = useStore((state) => state.brakePressed);
   const setAccelerator = useStore((state) => state.setAccelerator);
@@ -68,14 +66,6 @@ export default function HUD() {
   const trackEnd = -775;
   const mapPosition = ((carZ - trackStart) / (trackEnd - trackStart)) * 100;
   const clampedMapPosition = Math.max(0, Math.min(100, mapPosition));
-
-  const handleSkip = () => {
-    if (currentCheckpoint !== null) {
-      skipCheckpoint(currentCheckpoint);
-    } else if (nextCheckpoint) {
-      skipCheckpoint(nextCheckpoint.id);
-    }
-  };
 
   if (phase === 'intro' || phase === 'finish') return null;
 

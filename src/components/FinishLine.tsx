@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useStore } from '../store/useStore';
 import { gsap } from 'gsap';
@@ -7,7 +6,7 @@ import { gsap } from 'gsap';
 export default function FinishLine() {
   const finishRef = useRef<THREE.Group>(null);
   const bannerRef = useRef<THREE.Mesh>(null);
-  const { phase, setPhase } = useStore();
+  const { phase } = useStore();
 
   useEffect(() => {
     if (phase === 'finish' && bannerRef.current) {

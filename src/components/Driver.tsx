@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, Suspense } from 'react';
+import { useRef, useEffect, Suspense } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { useStore } from '../store/useStore';
 import * as THREE from 'three';

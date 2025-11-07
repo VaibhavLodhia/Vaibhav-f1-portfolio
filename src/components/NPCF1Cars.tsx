@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, Suspense } from 'react';
+import { useRef, useEffect, Suspense } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import { useStore } from '../store/useStore';
@@ -15,7 +15,7 @@ interface NPCCarProps {
 // Lane positions: Left (-4.5), Center (0), Right (4.5)
 const LANE_POSITIONS = [-4.5, 0, 4.5];
 
-function NPCCarModel({ id, initialPosition, speed, lane }: NPCCarProps) {
+function NPCCarModel({ initialPosition, speed, lane }: NPCCarProps) {
   const carRef = useRef<THREE.Group>(null);
   const { scene } = useGLTF('/assets/models/f1_cars.glb');
   const { phase, carPosition, setCollision, collision } = useStore();
@@ -144,7 +144,7 @@ function NPCCarModel({ id, initialPosition, speed, lane }: NPCCarProps) {
   );
 }
 
-function NPCCarPlaceholder({ id, initialPosition, speed, lane }: NPCCarProps) {
+function NPCCarPlaceholder({ initialPosition, speed, lane }: NPCCarProps) {
   const carRef = useRef<THREE.Group>(null);
   const { phase, carPosition, setCollision, collision } = useStore();
 

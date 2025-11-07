@@ -132,7 +132,6 @@ export const useStore = create<AppState>((set) => ({
   closeModal: () => {
     set((state) => {
       const completed = state.checkpoints.filter((cp) => cp.triggered || cp.skipped).length;
-      const allCompleted = completed === state.checkpoints.length;
       // Only set phase to 'finish' if ALL checkpoints are completed - don't trigger finish screen early
       // The finish screen will be triggered by Car.tsx when car reaches end AND all checkpoints are done
       return {

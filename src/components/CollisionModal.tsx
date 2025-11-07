@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useStore } from '../store/useStore';
 
 export default function CollisionModal() {
-  const { collision, setCollision } = useStore();
+  const { collision } = useStore();
 
   if (!collision) return null;
 
